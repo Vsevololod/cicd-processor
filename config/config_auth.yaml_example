@@ -1,0 +1,6 @@
+postgres:
+  user_name:
+  user_pass:
+amqp:
+  user_name:
+  user_pass:

@@ -1,0 +1,11 @@
+.idea
+cicd-processor.iml
+
+#my local
+.ssh
+.auth.env
+
+#configs
+config/*_local.yaml
+
+internal

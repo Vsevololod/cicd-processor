@@ -1,0 +1,36 @@
+services:
+  cicd-processor:
+    container_name: cicd-processor
+    hostname: cicd-processor
+    image: cicd-processor
+    privileged: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VERSION: "${VERSION}"
+        GIT_COMMIT: "${COMMIT_HASH}"
+        BUILD_TIME: "${BUILD_TIME}"
+    environment:
+      - CONFIG_PATH=/app/data/config.yaml,/app/data/config_auth.yaml
+    volumes:
+      - ./config/config_local.yaml:/app/data/config.yaml
+      #      - ./config/config.yaml:/app/data/config.yaml
+      - ./config/config_auth_local.yaml:/app/data/config_auth.yaml
+      #      - ./config/config_auth.yaml:/app/data/config_auth.yaml
+
+      - /project/internal/temp:/data/temp
+      - /project/internal/commands_logs:/data/commands_logs
+      - /project/internal/configs:/data/configs
+
+      - /var/run/docker.sock:/var/run/docker.sock
+    network_mode: host
+#    networks:
+#      - tgqueue_default
+
+
+
+
+#networks:
+#  tgqueue_default:
+#    external: true

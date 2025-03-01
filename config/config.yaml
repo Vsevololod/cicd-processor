@@ -1,0 +1,19 @@
+env: "local"
+
+amqp:
+  host: "rabbitmq"
+  port: 5672
+  queue: webhooks-def
+  
+otlp_config:
+  host: "jaeger"
+  port: 4317
+  service_name: "cicd-processor"
+
+paths_conf:
+  projects:
+    "/data/temp"
+  commands_logs:
+    "/data/commands_logs"
+  configs:
+    "/data/configs"
