@@ -14,10 +14,10 @@ services:
     environment:
       - CONFIG_PATH=/app/data/config.yaml,/app/data/config_auth.yaml
     volumes:
-      - ./config/config_local.yaml:/app/data/config.yaml
-      #      - ./config/config.yaml:/app/data/config.yaml
-      - ./config/config_auth_local.yaml:/app/data/config_auth.yaml
-      #      - ./config/config_auth.yaml:/app/data/config_auth.yaml
+      #      - ./config/config_local.yaml:/app/data/config.yaml
+      - ./config/config.yaml:/app/data/config.yaml
+      #      - ./config/config_auth_local.yaml:/app/data/config_auth.yaml
+      - ./config/config_auth.yaml:/app/data/config_auth.yaml
 
       - /project/internal/temp:/data/temp
       - /project/internal/commands_logs:/data/commands_logs
